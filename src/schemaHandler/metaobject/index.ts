@@ -91,21 +91,26 @@ export class MetaObjectRemoteSchemaCrud<Item> extends RemoteTypeCrud<Item> {
     async create(input: DbHandlerCreateCrudInput): Promise<Item> {
         const query = getCreateMetaObjectMutation(this.config.schema);
         const metaobject = convertToMetaObjectInput(this.config.schema, input.data);
-        const createItem = await runQql({
+        const createdItem = await runQql({
             client: this.config.client,
             query,
             variables: {
                 metaobject
             }
         })
-        return convertToModel(this.config.schema, createItem?.data?.metaobjectCreate?.metaobject);
+        // console.log(createdItem);
+
+        if (createdItem?.data?.metaobjectCreate.userErrors?.length > 0) {
+            throw createdItem?.data?.metaobjectCreate.userErrors;
+        }
+
+        return convertToModel(this.config.schema, createdItem?.data?.metaobjectCreate?.metaobject);
 
     }
 
     async update(input: DbHandlerUpdateCrudInput): Promise<Item> {
         const metaobject = convertToMetaObjectInput(this.config.schema, input.data);
         const query = getUpdateMetaObjectMutation(this.config.schema);
-        console.log(query);
 
         const updateItem = await runQql({
             client: this.config.client,
@@ -117,6 +122,7 @@ export class MetaObjectRemoteSchemaCrud<Item> extends RemoteTypeCrud<Item> {
                 }
             }
         })
+
         return convertToModel(this.config.schema, updateItem?.data?.metaobjectUpdate?.metaobject);
 
     }

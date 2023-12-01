@@ -284,7 +284,7 @@ export function findSchemaChanges(dbObject: MetaObjectDefinition, localObject: M
     }
     return null;
 }
-
+const objectFields = ['list.product_reference', 'list.collection_reference'];
 export function convertToModel(
     schema: OrmSchema,
     data: any
@@ -297,7 +297,7 @@ export function convertToModel(
         const field = schema.fields[fieldKey];
         if (field) {
             item[fieldKey] = data[fieldKey]?.value;
-            const isObject = field.type === 'json';
+            const isObject = field.type === 'json' || objectFields.includes(field.type);
             if (item[fieldKey] && isObject) {
                 item[fieldKey] = JSON.parse(item[fieldKey]);
             }

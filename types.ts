@@ -69,7 +69,6 @@ export type DbHandlerConfig = {
 export type DbHandlerListInput = {
     first?: number;
     after?: string;
-    type?: string;
 }
 export type DeleteResult = {
     success: boolean;
