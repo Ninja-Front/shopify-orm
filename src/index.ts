@@ -1,5 +1,5 @@
 import type { GraphQLClient } from "@shopify/graphql-client";
-import type { Fields, RemoteTypeCrud, OrmSchema, OrmSchemaConfigs, OrmSchemaConfig } from "../types";
+import type { Fields, RemoteTypeCrud, OrmSchema, OrmSchemaConfig } from "./types";
 import { MetaObjectRemoteSchemaCrud } from "./schemaHandler/metaobject";
 type ShopifyORM = {
     metaobject: (schema: OrmSchema) => RemoteTypeCrud<OrmSchema>;
@@ -23,7 +23,4 @@ export function metaobject(name: string, fields: Fields, configs: OrmSchemaConfi
         name,
         fields
     }
-}
-export function metaObjectDbHandler(schema: OrmSchema): RemoteTypeCrud<OrmSchema> {
-    return {}
 }

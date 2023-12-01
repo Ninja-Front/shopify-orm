@@ -1,4 +1,4 @@
-import type { OrmSchema } from "../../../types";
+import type { OrmSchema } from "../../types";
 import type { FieldDefinition, MetaObjectDefinition, MetaObjectDefinitionUpdateInput, } from "../../../field-types";
 import { Metafield } from "../../../field-types";
 import { jsonToGraphQLQuery, VariableType } from 'json-to-graphql-query';
@@ -208,7 +208,6 @@ export function convertToMetaObjectInput(
             } as unknown as Metafield;
         return null;
     });
-
 
     return {
         type: schema.name,

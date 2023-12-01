@@ -2,9 +2,12 @@
   "name": "shopify-orm",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rm -rf dist && node esbuild.js && tsc"
   },
   "keywords": [],
   "author": "neonninja22",
@@ -12,5 +15,10 @@
   "dependencies": {
     "@shopify/graphql-client": "^0.8.0",
     "json-to-graphql-query": "^2.2.5"
+  },
+  "devDependencies": {
+    "@shelf/esbuild-config": "^0.2.0",
+    "esbuild": "^0.19.8",
+    "esbuild-node-externals": "^1.11.0"
   }
 }

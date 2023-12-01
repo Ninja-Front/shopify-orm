@@ -1,5 +1,5 @@
-import type { DbHandlerConfig, DbHandlerCreateCrudInput, DbHandlerDeleteCrudInput, DbHandlerGetCrudInput, DbHandlerListInput, DbHandlerUpdateCrudInput, DeleteResult, MigrateResult } from "../../../types";
-import { RemoteTypeCrud } from "../../../types";
+import type { DbHandlerConfig, DbHandlerCreateCrudInput, DbHandlerDeleteCrudInput, DbHandlerGetCrudInput, DbHandlerListInput, DbHandlerUpdateCrudInput, DeleteResult, MigrateResult } from "../../types";
+import { RemoteTypeCrud } from "../../types";
 import { createMetaObjectDefinition, getMetaObjectDefinition, updateMetaObjectDefinition } from "./MetaObjectDefinition";
 import { runQql } from "./client";
 import type { PageInfo } from "./helper";

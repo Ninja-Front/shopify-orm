@@ -1,5 +1,5 @@
 import type { GraphQLClient } from "@shopify/graphql-client";
-import type { CapabilitiesDefinition, Metafield } from "./field-types";
+import type { CapabilitiesDefinition, Metafield } from "../field-types";
 
 export type OrmRemoteType = 'shopify_metaobject' | 'payment_customization' | 'delivery_customization';
 type AdminAccess =
@@ -10,7 +10,7 @@ type AdminAccess =
     | "PUBLIC_READ_WRITE";
 export interface AccessDefinition {
     admin: AdminAccess;
-    storefront: "PUBLIC_READ" | 'NONE';
+    storefront: "PUBLIC_READ" | 'NONE'; // You can add more types if needed
 }
 
 export type Field = {
@@ -69,6 +69,7 @@ export type DbHandlerConfig = {
 export type DbHandlerListInput = {
     first?: number;
     after?: string;
+    type?: string;
 }
 export type DeleteResult = {
     success: boolean;
@@ -76,7 +77,6 @@ export type DeleteResult = {
 
 }
 export abstract class RemoteTypeCrud<Item> {
-    protected config: DbHandlerConfig;
     abstract migrate(): Promise<MigrateResult>;
     abstract get(input: DbHandlerGetCrudInput): Promise<Item | DbHandlerCrudError>;
     abstract list(input: DbHandlerListInput): Promise<Item[] | DbHandlerCrudError>;
