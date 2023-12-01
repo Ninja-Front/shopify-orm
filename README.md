@@ -1,5 +1,4 @@
-# 🚀 Shopify MetaObject ORM
-
+# [WIP] 🚧 🚀 Shopify MetaObject ORM
 This is a simple ORM for Shopify's MetaObject API. Which simplifies the process of creating, updating, and deleting metaobjects and its definitions.
 **_Note: This is still in development/alpha and not ready recommended for production use._**
 
