@@ -48,11 +48,16 @@ const client = createGraphQLClient({
   retries: 1,
 });
 ```
+### Import the ORM
+```js
+import { metaobject, shopifyORM } from 'shopify-orm';
+```
 
 Define your metaobject schema, In below example we are defining a `size_chart` metaobject with `name`, `config`, `products`, and `collections` fields.
 
 ```ts
-const sizeChart: OrmSchema = metaobject(
+
+const sizeChart = metaobject(
   "size_chart",
   {
     name: {
