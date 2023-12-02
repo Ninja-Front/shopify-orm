@@ -7,7 +7,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "rm -rf dist && node esbuild.js && tsc"
+    "build": "rm -rf dist && node esbuild.js"
   },
   "keywords": [],
   "author": "neonninja22",

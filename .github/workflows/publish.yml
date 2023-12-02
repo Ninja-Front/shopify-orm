@@ -30,10 +30,4 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         run: |
-          git config --local user.email "myEmail"
-          git config --local user.name "myUsername"
-          yarn version --new-version ${{github.event.inputs.release}} --no-git-tag-version
-          yarn publish --access public
-          PACKAGE_VERSION=$(node -p "require('./package.json').version")
-          git commit -a -m "v${PACKAGE_VERSION}"
-          git push
+            yarn publish --access public
