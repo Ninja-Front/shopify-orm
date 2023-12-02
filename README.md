@@ -24,11 +24,10 @@ A big shoutout to [@blanklob](https://twitter.com/blanklob)  for the inspiration
 
 
 
-<!-- ### 📦 Installation
-
+### 📦 Installation
 ```bash
 npm i shopify-orm
-``` -->
+```
 
 ### 🚀 Quick Start Guide
 
